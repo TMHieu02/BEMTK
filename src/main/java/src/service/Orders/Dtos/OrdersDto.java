@@ -1,0 +1,32 @@
+
+package src.service.Orders.Dtos;
+
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+import src.model.Delivery;
+import src.model.OrderItems;
+import src.model.Store;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.UUID;
+
+@Data
+public class OrdersDto extends OrdersUpdateDto {
+   @JsonProperty(value = "Id", required = true)
+   public UUID Id;
+   @JsonProperty(value = "isDeleted")
+   public Boolean isDeleted  = false;
+   @JsonProperty(value = "createAt", required = true)
+   public Date createAt ;
+   @JsonProperty(value = "updateAt", required = true)
+   public Date updateAt ;
+   @JsonProperty(value = "delivery")
+   public Delivery deliveryByDeliveryId;
+   @JsonProperty(value = "orderItems")
+   public Collection<OrderItems> item;
+   @JsonProperty(value = "store")
+   public Store storeByStoreId;
+}
+
